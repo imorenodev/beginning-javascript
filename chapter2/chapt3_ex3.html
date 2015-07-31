@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+	<script type="text/javascript">
+	//Times table program: Take 3 parameters as input from user, number to be multiplied, the starting multiplier, and the ending multiplier.
+	var numToMultiply = prompt("Enter the number to be multiplied:");
+	var startingMultiplier = prompt("Enter the starting multiplier");
+	var endingMultiplier = prompt("Enter the ending multiplier (must be greater than " + startingMultiplier + ":");
+
+	function timesTable(numToMultiply, startingMultiplier, endingMultiplier) {	
+		for(var i = startingMultiplier; i <= endingMultiplier; i++) {
+		document.write(numToMultiply + " * " + i + " = " + (numToMultiply * i) + "<BR>");
+		}
+	}
+	timesTable(numToMultiply, startingMultiplier, endingMultiplier);
+	</script>
+</body>
+</html>
