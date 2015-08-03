@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Testing the Math.random() and Math.pow() methods</title>
+	<script>
+	
+	function fix(fixNumber, decimalPlaces) { 
+		var div = Math.pow(10,decimalPlaces);
+		fixNumber = (Math.round(fixNumber * div) / div);
+		return fixNumber;
+	}
+	
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var rollTheDice = prompt("How many times would you like to roll the dice?:");
+
+	for (; rollTheDice > 0; rollTheDice--) {
+		document.write(Math.floor(Math.random() * 6) + 1 + "<br />");
+	}
+
+	var fixNumber = prompt("Enter a decimal number to fix", 0);
+	var decimalPlaces = prompt("Enter the number of decimal places", 2); 
+	document.write("Your number " + fixNumber + " fixed to " + decimalPlaces + " decimal places is: " + fix(fixNumber, decimalPlaces));
+
+	</script>
+</body>
+</html>

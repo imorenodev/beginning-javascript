@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Rounding Methods Results Calculator</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var numberToRound = prompt("Enter a number to be rounded:", "");
+
+	document.write("<h3>The number you entered was " + numberToRound + "</h3><br />");
+	document.write("<p>The rounding results for this number are</p>");
+	document.write("<table width='150' border='1'>");
+	document.write("<tr><th>Method</th><th>Result</th></tr>");
+	document.write("<tr><th>parseInt()</td><td>" + parseInt(numberToRound) + "</td></td>");
+	document.write("<tr><th>ceil()</th><td>" + Math.ceil(numberToRound) + "</td></td>");
+	document.write("<tr><th>floor()</th><td>" + Math.floor(numberToRound) + "</td></td>");
+	document.write("<tr><th>round()</th><td>" + Math.round(numberToRound) + "</td></td>");
+	document.write("</table>");
+
+	</script>
+</body>
+</html>

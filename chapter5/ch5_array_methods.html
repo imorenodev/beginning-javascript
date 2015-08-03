@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Testing every(), some(), and filter()</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+	function isLessThan5 (value, index, array) {
+		return (value < 5);
+	}
+
+	function isOdd (value, index, array) {
+		if (value % 2 !== 0) {
+			return value;
+		}
+	}
+
+	function isEven (value, index, array) {
+		if (value % 2 === 0) {
+			return value;
+		}
+	}
+
+	function cleanArray (originalArray) { 
+		var newArray = [];
+		for (var i = 0; i < originalArray.length; i++) {
+			if (originalArray[i] != null) {
+				newArray.push(originalArray[i]);
+			}
+		}
+		return newArray;
+	}
+
+	document.write("Every number in the array is less than five: " + numbers.every(isLessThan5) + "<br />");
+	document.write("Some of the numbers in the array are less than five: " + numbers.some(isLessThan5) + "<br />");
+	document.write("Here are the numbers in the array that are less than five: " + numbers.filter(isLessThan5) + "<br />");
+	document.write("Here are the odd numbers: " + cleanArray(numbers.map(isOdd)) + "<br />");
+	document.write("Here are the even numbers:" + cleanArray(numbers.map(isEven)) + "<br />");
+	</script>
+</body>
+</html>
