@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Five: Exerise Three</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var numToFix = prompt("Enter a number with decimal places:", 0.00);
+	var placesToFix = prompt("Enter the number of decimal places to fix the number to:", 2);
+
+	var fix = function () {
+		var div = Math.pow(10,placesToFix);
+		numToFix = new String(Math.round(numToFix * div) / div);
+		
+		if (numToFix.lastIndexOf(".") === "-1") {
+			numToFix += ".";
+		}
+
+		var zeroesNeeded = placesToFix - (numToFix.length - numToFix.lastIndexOf(".") -1);
+
+		for (; zeroesNeeded > 0; zeroesNeeded--) {
+			numToFix += "0";
+		}
+
+		return numToFix;
+	}
+
+	document.write(fix());
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Five: Exercise Two</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//initialize array to hold list of names
+	var nameList = [];
+
+	//print all names in nameList array
+	var printNames = function() {
+		for (var name in nameList) {
+			document.write(nameList[name] + "<br />");
+		};
+	}
+
+	//push new name onto nameList array
+	var addName = function(name) {
+		nameList.push(name);
+	}
+
+	//get user to input each name, blank entry marks end of input
+	var getName = function() {
+		return prompt("Enter a name (leave blank to quit):");
+	}
+
+	var buildNameList = function() {
+		var newName = getName();
+
+		if (newName == "") {
+			printNames();
+		} else {
+			addName(newName);
+			buildNameList();
+		}
+	}
+
+	buildNameList();
+
+	</script>
+</body>
+</html>
