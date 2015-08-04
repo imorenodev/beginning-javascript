@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Translate a phrase into rovarspraket</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//check to see if the letter in the phrase is a consonant, return "true" if yes, "false" if letter is a vowel
+	var isConsonant = function(letter) {
+		switch(letter) {
+			case 65: //A
+			case 69: //E
+			case 73: //I
+			case 79: //O
+			case 85: //U
+			case 89: //Y
+				return false;
+				break;
+			default: //CONSONANT
+				return true;
+				break;
+		};
+	};
+
+	//takes phrase and translates into rovarspraket: finds each consonant then adds an "o" + the consonant after (e.g. "this" = "tothohisos")
+	var translate = function(myPhrase) {
+		var translatedPhrase = "";
+
+		//enumerate through each character in the phrase to check if it is a consonant
+		for (var letter in myPhrase) {
+			if (myPhrase[letter] == " ") { //first check if the character is a blank space
+				translatedPhrase += myPhrase[letter];
+			} else if (isConsonant(myPhrase.toUpperCase().charCodeAt(letter))) { //check uppercase letter to see if consonant or not
+				translatedPhrase += myPhrase[letter] + "o" + myPhrase[letter];
+			} else {
+				translatedPhrase += myPhrase[letter];
+			};
+		};
+		document.write("The phrase \"" + myPhrase + "\" translated into rovarspraket is: " + translatedPhrase + "<br />");
+	}
+
+	var getPhrase = function() {
+		var myPhrase = prompt("Enter a phrase to be translated into rovarspraket (leave blank to quit):");
+
+		if (myPhrase == "") { //user exit case, quit program
+			return false;
+		} else { //translate phrase and returns "true" to play() to continue looping for more input phrases to translate
+			translate(myPhrase);
+			return true;
+		}
+	}
+
+	//driver to loop through the getPhrase() function for user input
+	var play = function() {
+		while(getPhrase()) {
+
+		};
+	}
+
+	play();
+
+
+	</script>
+</body>
+</html>
