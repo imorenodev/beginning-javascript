@@ -6,59 +6,64 @@
 <body>
 	<script type="text/javascript">
 
+	//function to test whether the character is a vowel (return true), or consonant (return false)
 	var isVowel = function (myChar) {
 		switch(myChar) {
-			case 65:
-			case 69:
-			case 73:
-			case 79:
-			case 85:
-			case 89:
+			case 65: //A
+			case 69: //E
+			case 73: //I
+			case 79: //O
+			case 85: //U
+			case 89: //Y
 				return true;
 				break;
-			default:
+			default: //CONSONANT
 				return false;
 				break;
 		};
 	};
 
+	//function to prompt user input for a single letter character
 	var getChar = function() {
 		var myChar = prompt("Enter a single letter (leave blank to quit):");
 
+		//test to ensure user input is one character
 		if (myChar.length == 1) {
-			if (isNaN(parseInt(myChar))) {
-				printResult(myChar);
-			} else {
+			if (isNaN(parseInt(myChar))) { //test to ensure character is not a number before passing value of myChar to printResult() function
+				printResult(myChar); 
+			} else { //do nothing except return "true" to play() function and continue while loop
 				alert("Invalid Input, please enter a letter, not a number.");
 			}
-		} else if (myChar == "") {
+		} else if (myChar == "") { //user exit character, print sign-off message and return "false" to play() function to exit while loop
 			printResult(myChar);
 			return false;
-		} else {
+		} else { //alert user of invalid input and return "true" to play() function to continue while loop
 			alert("Invalid Input.");
 		};
-		return true;
+		return true; //continue the while loop and ask again for user input of a new letter character
 
 	};
 
+	//takes the validated user input (a single letter character) and prints corresponding output if character is a vowel or consonant
 	var printResult = function (myChar) {
-		var newChar = myChar.toUpperCase().charCodeAt(0);
+		var newChar = myChar.toUpperCase().charCodeAt(0); //takes myChar character and turns it into uppercase, and then saves the ASCII code as an integer value in newChar
 
-		if (myChar == "") {
+		if (myChar == "") { //user exit character
 			document.write("Thanks for playing.");
 		} else {
-			if (isVowel(newChar)) {
+			if (isVowel(newChar)) { //pass the ASCII code integer value of myChar to isVowel() function, if returns "true" then the character is a vowel
 				document.write("The letter " + String.fromCharCode(newChar) + " is a vowel.<br />");
-			} else {
+			} else { //character is a consonant
 				document.write("The letter " + String.fromCharCode(newChar) + " is a consonant.<br />");
 			};
 		};
 	};
 
+	//driver function to loop getChar() function for user input until exit condition is met
 	var play = function() {
 		while (getChar()) {
 		};
-	}
+	};
 
 	play();
 
