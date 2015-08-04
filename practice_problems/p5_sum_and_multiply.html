@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Sum and Multipy Numbers in an Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var sum = function(numbersArray) {
+		var totalSum = 0;
+
+		for (var number in numbersArray) {
+			totalSum += parseInt(numbersArray[number]);
+		};
+		document.write("The sum of the numbers in the array is: " + totalSum + "<br />");
+	};
+
+	var multiply = function(numbersArray) {
+		var totalMultipliedSum = 1;
+
+		for (var number in numbersArray) {
+			totalMultipliedSum *= numbersArray[number];
+		};
+		document.write("The total of all the numbers multiplied in the array is: " + totalMultipliedSum + "<br />");
+	};
+
+	var getArray = function() {
+		var loop = true;
+		var numbersArray = [];
+		var newNumber = 0;
+
+		while(loop) {
+			newNumber = prompt("Enter a number (leave blank to exit):");
+			if (newNumber == "") {
+				loop = false;
+			} else if (isNaN(newNumber)) {
+				alert("Invalid Input. Please enter a number.");
+			} else {
+				numbersArray.push(newNumber);
+			};
+		};
+		return numbersArray;
+	};
+
+	var play = function() {
+		var numbersArray = getArray();
+
+		sum(numbersArray);
+		multiply(numbersArray);
+	};
+
+	play();
+
+	</script>
+</body>
+</html>
