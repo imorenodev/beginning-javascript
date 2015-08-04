@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Is the character a vowel</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var isVowel = function (myChar) {
+		switch(myChar) {
+			case 65:
+			case 69:
+			case 73:
+			case 79:
+			case 85:
+			case 89:
+				return true;
+				break;
+			default:
+				return false;
+				break;
+		};
+	};
+
+	var getChar = function() {
+		var myChar = prompt("Enter a single letter (leave blank to quit):");
+
+		if (myChar.length == 1) {
+			if (isNaN(parseInt(myChar))) {
+				printResult(myChar);
+			} else {
+				alert("Invalid Input, please enter a letter, not a number.");
+			}
+		} else if (myChar == "") {
+			printResult(myChar);
+			return false;
+		} else {
+			alert("Invalid Input.");
+		};
+		return true;
+
+	};
+
+	var printResult = function (myChar) {
+		var newChar = myChar.toUpperCase().charCodeAt(0);
+
+		if (myChar == "") {
+			document.write("Thanks for playing.");
+		} else {
+			if (isVowel(newChar)) {
+				document.write("The letter " + String.fromCharCode(newChar) + " is a vowel.<br />");
+			} else {
+				document.write("The letter " + String.fromCharCode(newChar) + " is a consonant.<br />");
+			};
+		};
+	};
+
+	var play = function() {
+		while (getChar()) {
+		};
+	}
+
+	play();
+
+	</script>
+</body>
+</html>
