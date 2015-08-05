@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title></title>
+</head>	
+<body>
+	<script type="text/javascript">
+
+	var getArray = function() {
+
+		var newArray = [];
+		var index = 0;
+		var word = "";
+
+		while(true) {
+			word = prompt("Enter a word (leave blank to exit):");
+
+			if (word != "") {
+				newArray[index] = word;
+				index++;
+			} else {
+				return newArray;
+			};
+		};
+	};
+
+	var findLongestWord = function(array) {
+		var longest = 0;
+
+		for (var word in array) {
+			if (array[word].length > longest) {
+				longest = array[word].length;
+			};
+		};
+		return longest;
+	};
+
+	document.write("The longest word is " + findLongestWord(getArray()) + " letters long.");
+
+	</script>
+</body>
+</htmL>
