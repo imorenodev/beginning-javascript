@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Takes array of words and an integer "i", and returns an array of all words longer than the integer</title>
+</head>	
+<body>
+	<script type="text/javascript">
+
+	var i = 5;
+	
+	var getArray = function() {
+
+		var newArray = [];
+		var index = 0;
+		var word = "";
+
+		while(true) {
+			word = prompt("Enter a word (leave blank to exit):");
+
+			if (word != "") {
+				newArray[index] = word;
+				index++;
+			} else {
+				return newArray;
+			};
+		};
+	};
+
+	var filterLongWords = function(array, i) {
+		var longerThanFilter = [];
+		var index  = 0;
+
+		for (var word in array) {
+			if (array[word].length > i) {
+				longerThanFilter[index] = " " + array[word];
+				index++;
+			};
+		};
+		return longerThanFilter;
+	};
+
+	document.write("The words longer than " + i + " are: " + filterLongWords(getArray(),i));
+
+	</script>
+</body>
+</htmL>
