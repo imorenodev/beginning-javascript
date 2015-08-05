@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Reverse a string</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	var myString = "xena warrior princess";
+
+	var reverse = function(myString) {
+		var inReverse = "";
+
+		for (var i = myString.length - 1; i >= 0; i--) {
+			inReverse += myString[i];
+		};
+		return inReverse;
+	};
+
+	document.write(reverse(myString));
+
+	</script>
+</body>
+</html>
