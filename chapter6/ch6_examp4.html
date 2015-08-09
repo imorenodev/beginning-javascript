@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Six: Example 4 Event Handlers</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function linkSomePage_onclick() {
+			alert("This link is going nowhere.");
+			return false;
+		}
+	</script>
+
+	<a href="http://www.google.com" name="linkSomePage"> Click Me</a>
+
+	<script type="text/javascript">
+		window.document.links["linkSomePage"].onclick = linkSomePage_onclick;
+	</script>
+</body>
+</html>
