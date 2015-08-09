@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Six: Exercise One</title>
+	<script type="text/javascript">
+	//function alerts for each web address linked to in the page
+	function pageLinks_onwindowload() {
+		for (link = 0; link <= document.links.length; link++) {	
+			alert(document.links[link].href);
+		};
+	};
+	</script>
+</head>
+<!--body onload executes pageLinks_onwindowload() function-->
+<body onload="pageLinks_onwindowload()">
+	<a href="http://www.google.com" name="pageLinks">Google</a>
+	<a href="http://www.reddit.com" name="pageLinks2">Reddit</a>
+</body>
+</html>
