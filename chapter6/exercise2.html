@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Six: Exercise Two</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var	myImages = ["usa.png", "jamaica.png", "mexico.gif", "canada.png"];
+
+
+	//checks myImages array for the current image src of img0, if matches index at 0 (original image) then change the image src to myImages[2], else change the image src back to 0 (original image)
+	function imageSwap(that) {
+		if (myImages.indexOf(that.src.substring(that.src.lastIndexOf("/")+1,that.src.length)) === 0) { 
+			that.src= "images/" + myImages[2];
+		} else {
+			that.src= "images/" + myImages[0];
+		}
+	}
+	</script>
+	<img name="img0" src="images/usa.png" onmouseover="imageSwap(this)" onmouseout="imageSwap(this)">
+</body>
+</html>
