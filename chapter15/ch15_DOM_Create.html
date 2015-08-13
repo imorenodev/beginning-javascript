@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 15: Creating DOM elements</title>
+</head>
+<body>
+	<script type="text/javascript"> //javascript DOM element creation
+		function window_onload(){
+			var a = document.createElement("a");
+			a.id = "myLink";
+			a.setAttribute("href", "http://www.jquery.com");
+			a.setAttribute("title", "jQuery's Website");
+
+			var text = document.createTextNode("Click to go to jQuery's website!");
+
+			a.appendChild(text);
+			document.body.appendChild(a);
+		}
+
+		onload = window_onload;
+	</script>
+	<script type="text/javascript" src="script/jquery.min.js"></script>
+	<script type="text/javascript"> //the jQuery way
+		function document_ready(){
+			var a = $(document.createElement("a"));
+			$(document.body).append(
+				a.attr("id", "myLink")
+				.attr("href", "http://jquery.com")
+				.attr("title", "jQuery's Website")
+				.text("Click here to go to jQuery's website.")
+				);
+		}
+
+		$(document).ready(document_ready);
+	</script>
+</body>
+</html>

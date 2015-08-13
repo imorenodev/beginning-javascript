@@ -1,0 +1,25 @@
+.tabStrip {
+	background-color: #E4E2D5;
+	padding: 3px;
+	height: 22px;
+}
+
+.tabStrip-tab {
+	float: left;
+	font: 14px arial;
+	cursor: pointer;
+	padding: 2px;
+
+	border: 1px solid transparent;
+}
+
+.tabStrip-tab-hover {
+	border-color: #316AC5;
+	background-color: #C1D2EE;
+}
+
+.tabStrip-tab-click {
+	border-color: #facc5a;
+	background-color: #f9e391;
+}
+
