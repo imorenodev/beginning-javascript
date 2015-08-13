@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 7: Example 1</title>
+	<script type="text/javascript">
+		function window_onload() {
+			var numberForms = document.forms.length;
+			for (var formIndex = 0; formIndex < numberForms; formIndex++) {
+				alert(document.forms[formIndex].name);
+			}
+		}
+	</script>
+</head>
+<body onload="window_onload()">
+	<form action="" name="form1">
+		<p>
+			Enter your name:
+		</o>
+		<input type="text" />
+		</br>
+		<p>
+			Enter your password:
+		</p>
+		<input type="password" />
+		<textarea></textarea>
+	</form>
+	<form action="" name="form2">
+		<p>
+			This is inside form2
+		</o>
+		<input type="checkbox" />
+		<input type="radio" />
+	</form>
+	<form action="" name="form3">
+		<p>
+			This is inside form3
+		</o>
+		<select><options></options></select>
+		<select size="4"><options></options></select>
+	</form>	
+</body>
+</html>
