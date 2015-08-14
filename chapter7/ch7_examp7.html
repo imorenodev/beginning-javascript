@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 7: Example 7</title>
+	<script type="text/javascript">
+
+	function btnRemoveWed_onclick() { //checks if index position 2 in theDay array equals Wednesday, if true, assign index position 2 to null, decrement all other option objects in theDay by one
+		if (document.form1.theDay.options[2].text == "Wednesday") {
+			document.form1.theDay.options[2] = null;
+		} else {
+			alert("There is no Wednesday here!");
+		}
+	}
+
+	function btnAddWed_onclick() {
+		var dayList = document.form1.theDay.options; //assigns theDay.options objects array to dayList
+		var lastOption = dayList[dayList.length-1]; //save the last "day" options object to lastOption: options[5] = ("Sunday", 6)
+
+		if (dayList[2].text == "Wednesday") { //check that Wednesday doesn't exist at index position 2
+			alert("Do you want two Wednesdays?");
+		} else {
+			for (var length = dayList.length; length > 2; length--) { //move all day options objects one index up, stopping at index[2] 
+				dayList[length] = new Option(lastOption.text, lastOption.value); //add lastOption object to new position at the end of the dayList array
+				lastOption = dayList[length-2]; //lastOption now equals the day before
+			}
+			dayList[2] = new Option("Wednesday", 2);
+		}
+	}
+
+	</script>
+</head>
+<body>
+	<form action="" name="form1">
+		<select name="theDay" size="7">
+			<option value="0" selected="selected">Monday</option>
+			<option value="1">Tuesday</option>
+			<option value="2">Wednesday</option>
+			<option value="3">Thursday</option>
+			<option value="4">Friday</option>
+			<option value="5">Saturday</option>
+			<option value="6">Sunday</option>
+		</select>
+		<br />
+		<input type="button" value="Remove Wednesday" name="btnRemoveWed" onclick="btnRemoveWed_onclick()" />
+		<input type="button" value="Add Wednesday" name="btnAddWed" onclick="btnAddWed_onclick()" />
+		<br />
+	</form>
+</body>
+</html>
