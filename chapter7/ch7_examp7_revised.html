@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 7: Example 7</title>
+	<script type="text/javascript">
+
+	function btnRemoveWed_onclick() { //checks if index position 2 in theDay array equals Wednesday, if true, assign index position 2 to null, decrement all other option objects in theDay by one
+	var days = document.form1.theDay.options;
+		if (days[2].text == "Wednesday") {
+			days.remove(2);
+		} else {
+			alert("There is no Wednesday here!");
+		}
+	}
+
+	function btnAddWed_onclick() {
+		days = document.form1.theDay.options;
+		days.add(new Option("Wednesday", 2), 2);
+	}
+
+	</script>
+</head>
+<body>
+	<form action="" name="form1">
+		<select name="theDay" size="7">
+			<option value="0" selected="selected">Monday</option>
+			<option value="1">Tuesday</option>
+			<option value="2">Wednesday</option>
+			<option value="3">Thursday</option>
+			<option value="4">Friday</option>
+			<option value="5">Saturday</option>
+			<option value="6">Sunday</option>
+		</select>
+		<br />
+		<input type="button" value="Remove Wednesday" name="btnRemoveWed" onclick="btnRemoveWed_onclick()" />
+		<input type="button" value="Add Wednesday" name="btnAddWed" onclick="btnAddWed_onclick()" />
+		<br />
+	</form>
+</body>
+</html>
