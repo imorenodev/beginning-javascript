@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 7: Example 5</title>
+	<script type="text/javascript">
+
+	function DisplayEvent(eventName) { //takes string argument
+		var myMessage = window.document.form1.textarea2.value; //pointer variable myMessage assigned location of window.document.form1.textarea2.value
+		myMessage += eventName; //creates a running list of strings
+		document.form1.textarea2.value = myMessage; //list of strings is assigned to document.form1.textarea2.value
+	}
+
+	</script>
+</head>
+<body>
+	<form action="" name="form1"> <!-- textarea takes user input and sends a string corresponding to each event to DisplayEvent function -->
+		<textarea rows="15" cols="40" name="textarea" 
+		onchange="DisplayEvent('onchange\n');"
+		onkeydown="DisplayEvent('onkeydown\n');"
+		onkeypress="DisplayEvent('onkeypress\n');"
+		onkeyup="DisplayEvent('onkeyup\n');"></textarea>
+		<!--second text area shows the running string of userinput events as they fire-->
+		<textarea rows="15" cols="40" name="textarea2"></textarea>
+		<br />
+		<br />
+		<input type="button" value="Clear Event Textarea" name="button1" onclick="document.form1.textarea2.value=''" />
+	</form>
+</body>
+</html>
