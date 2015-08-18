@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Seven: Excersize One</title>
+	<script type="text/javascript">
+	function window_onload() {
+		calcNewTemp(); //populates the form with default calculation 32F = 0C on page load
+	}
+
+	function calcNewTemp() {
+		var theForm = document.form1;
+		var inputTemp = theForm.inputTemp.value;
+
+		if (theForm.tempType1.value == 0) {
+			//Fahrenheit
+			document.form1.outputTemp.value = 5/9 * (inputTemp - 32);
+			theForm.tempType2.value = "Celcius";
+		} else {
+			//Celcius
+			document.form1.outputTemp.value = (1.8000 * inputTemp) + 32;
+			theForm.tempType2.value = "Fahrenheit";
+		}
+	}
+	</script>
+</head>
+<body onload="window_onload()">
+	<h1>Fahrenheit / Celcius Temperature Conversion</h1>
+	<form action="" name="form1">
+		<p>
+			<input type="text" name="inputTemp" value="32" size="10" onchange="calcNewTemp()" />
+			degrees
+			<select name="tempType1" size="1" onchange="calcNewTemp()">
+				<option value="0" selected="selected">Fahrenheit</option>
+				<option value="1">Celcius</option>
+			</select>
+			is
+			<input type="text" name="outputTemp" size="10" readonly="readonly" />
+			degrees
+			<input type="text" name="tempType2" readonly="readonly" size="10" />
+		</p>
+	</form>
+</body>
+</html>
