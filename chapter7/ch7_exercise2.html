@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Seven: Exercise 2</title>
+	<script type="text/javascript">
+	function showTotal() {
+		var theTotal = getPrices().toFixed(2);
+		document.form1.totalCost.value = theTotal;
+	}
+
+	function getPrices() {
+		var myForm = document.form1;
+		var theTotal;
+		var dvdPrice;
+		var soundCardPrice;
+		var headsetPrice;
+		var keyboardPrice;
+		var processorPrice;
+		var ramPrice;
+		var hddPrice;
+		var processorType = myForm.processor.options[myForm.processor.selectedIndex].value;
+		var ramType = myForm.ram.options[myForm.ram.selectedIndex].value;
+		var hddType = myForm.hdd.options[myForm.hdd.selectedIndex].value;
+
+		if (processorType == 1) {
+			processorPrice = 1009.99;
+		} else if (processorType == 2) {
+			processorPrice = 504.60;
+		} else if (processorType == 3) {
+			processorPrice = 328.99;
+		} else {
+			processorPrice = 0.00;
+		}
+
+		if (ramType == 1) {
+			ramPrice = 129.99;
+		} else if (ramType == 2) {
+			ramPrice = 51.55;
+		} else if (ramType == 3) {
+			ramPrice = 49.89;
+		} else {
+			ramPrice = 0.00;
+		}
+
+		if (hddType == 1) {
+			hddPrice = 143.00;
+		} else if (hddType == 2) {
+			hddPrice = 119.99;
+		} else if (hddType == 3) {
+			hddPrice = 96.98;
+		} else {
+			hddPrice = 0.00;
+		}
+
+		if (myForm.elements[3].checked == true) {
+			dvdPrice = 59.98;
+		} else {
+			dvdPrice = 0.00;
+		}
+
+		if (myForm.elements[4].checked == true) {
+			soundCardPrice = 169.99;
+		} else {
+			soundCardPrice = 0.00;
+		}
+
+		if (myForm.elements[5].checked == true) {
+			headsetPrice = 150.00;
+		} else {
+			headsetPrice = 0.00;
+		}
+
+		if (myForm.elements[6].checked == true) {
+			keyboardPrice = 119.99;
+		} else {
+			keyboardPrice = 0.00;
+		}
+
+		theTotal = processorPrice + ramPrice + hddPrice + dvdPrice + soundCardPrice + headsetPrice + keyboardPrice;
+		return theTotal;
+	}
+
+	function formReset() {
+		var myForm = document.form1;
+		myForm.processor.options.selectedIndex = 0;
+		myForm.ram.options.selectedIndex = 0;
+		myForm.hdd.options.selectedIndex = 0;
+		
+		for (var elementIndex = 3; elementIndex <= 7; elementIndex++) {
+			myForm.elements[elementIndex].checked = false;
+		}
+		showTotal();
+	}
+
+	</script>
+	<style>
+	.header {
+		font-weight: bold;
+		border-style: dotted;
+		border-width: 1px;
+	}
+	</style>
+</head>
+<body>
+	<h1>Build your custom PC</h1>
+	<form action="" name="form1">
+		<p>
+			<table>
+				<tr>
+					Processor / Speed:
+					<select name="processor" onchange="showTotal()">
+						<option value="0" selected="selected">Select Option</option>
+						<option value="1">Intel Core i7-5960X - 3.0GHz - $1009.99</option>
+						<option value="2">Intel Core i7-3770K - 3.5GHz - $504.60</option>
+						<option value="3">Intel Core i7-4790K - 4.0GHz - $328.99</option>
+					</select>
+				</tr>
+			</table>
+		</p>
+
+		<p>
+			<table>
+				<tr>
+					RAM / Size:
+					<select name="ram" onchange="showTotal()">
+						<option value="0" selected="selected">Select Option</option>
+						<option value="1">Corsair Dominator Platinum - DDR3-1600 16GB - $129.99</option>
+						<option value="2">G.Skill Ripjaw X Series - DDR3-1600 8GB - $51.55</option>
+						<option value="3">G.Skill Sniper - DDR3-1600 8GB - $49.89</option>
+					</select>
+				</tr>
+			</table>
+		</p>
+
+		<p>
+			<table>
+				<tr>
+					HDD / Size:
+					<select name="hdd" onchange="showTotal()">
+						<option value="0" selected="selected">Select Option</option>
+						<option value="1">Western Digital - 2TB - $143.00</option>
+						<option value="2">Seagate - 4TB - $119.99</option>
+						<option value="3">Samsung - 3TB - $96.98</option>
+					</select>
+				</tr>
+			</table>
+		</p>
+
+		<p>
+			Additional Components:
+		</p>
+		<table>
+			<tr>
+				<td>
+					DVD-ROM - $59.98
+				</td>
+				<td>
+					<input type="checkbox" name="chkDVD" value="DVD-ROM" onclick="showTotal()" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Sound Card - $169.99
+				</td>
+				<td>
+					<input type="checkbox" name="chkSoundCard" value="Sound Card" onclick="showTotal()" />
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Headset $150.00
+				</td>
+				<td>
+					<input type="checkbox" name="chkHeadset" value="Headset" onclick="showTotal()" />
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Keyboard $119.99
+				</td>
+				<td>
+					<input type="checkbox" name="chkKeyboard" value="Keyboard" onclick="showTotal()" />
+				</td>
+			</tr>							
+		</table>
+		<p class="header">
+			Total Cost
+			<input type="text" name="totalCost" value="0" readonly="readonly" />
+		</p>
+		<input type="button" value="Reset" name="button1" onclick="formReset()" />
+	</form>
+</body>
+</html>
