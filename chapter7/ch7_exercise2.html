@@ -85,10 +85,10 @@
 		myForm.processor.options.selectedIndex = 0;
 		myForm.ram.options.selectedIndex = 0;
 		myForm.hdd.options.selectedIndex = 0;
-		
-		for (var elementIndex = 3; elementIndex <= 7; elementIndex++) {
-			myForm.elements[elementIndex].checked = false;
-		}
+
+		for (var element in myForm.elements) {
+			myForm.elements[element].checked = false;
+		}		
 		showTotal();
 	}
 
