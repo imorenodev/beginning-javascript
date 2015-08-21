@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter Eight: Example Five</title>
+	<script type="text/javascript">
+	var newWindow;
+
+	function btnOpenWin_onclick() {
+		var winTop = (screen.height / 2) - 125;
+		var winLeft = (screen.width / 2) - 125;
+		var windowFeatures = "width=250, height=250,";
+		windowFeatures = windowFeatures + "left=" + winLeft + ",";
+		windowFeatures = windowFeatures + "top=" + winTop;
+		newWindow = window.open("ch8_examp5_popup.html", "myWindow", windowFeatures);
+	}
+
+	function btnGetText_onclick() {
+		if (typeof (newWindow) == "undefined" || newWindow.closed == true) {
+			alert("No window is open");
+		} else {
+			document.form1.text1.value = newWindow.document.form1.text1.value;
+		}
+	}
+
+	function window_onunload() {
+		if (typeof (newWindow) != "undefiend" && newWindow.closed == false) {
+			newWindow.close();
+		}
+	}
+	</script>
+</head>
+<body onunload="window_onunload()">
+	<form name="form1" action="">
+		<input type="button" value="Open newWindow" name="btnOpenWin" onclick="btnOpenWin_onclick()" />
+		<p>
+			newWindow's Text:<br/>
+			<input type="text" name="text1" />
+			<input type="button" value="Get Text" name="btnGetText" onclick="btnGetText_onclick()" />
+		</p>
+	</form>
+</body>
+</html>

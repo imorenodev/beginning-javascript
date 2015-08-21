@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chapter 8: Example 5 Popup Window</title>
+	<script type="text/javascript">
+	function btnGetText_onclick() {
+		document.form1.text1.value = window.opener.document.form1.text1.value;
+	}
+	</script>
+</head>
+<body>
+	<form name="form1" action="">
+		Opener window's text<br />
+		<input type="text" name="text1" />
+		<input type="button" value="Get Text" name="btnGetText" onclick="btnGetText_onclick()" />
+	</form>
+</body>
+</html>
